@@ -23,8 +23,3 @@ export async function sendMessage(to: string, text: string) {
     throw error
   }
 }
-  } catch (error) {
-    console.error('[whatsappClient] Error sending message', JSON.stringify({ to, error: error instanceof Error ? error.message : String(error) }, null, 2))
-    throw error
-  }
-}
