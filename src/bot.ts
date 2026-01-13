@@ -3,7 +3,7 @@ import { sendMessage } from './whatsappClient'
 export async function handleMessage(payload: any) {
   console.log('[bot] handleMessage called', JSON.stringify(payload, null, 2))
   
-  const message = payload?.messages?.[0]
+  const message = payload?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]
   if (!message) {
     console.log('[bot] No message found in payload')
     return
