@@ -8,10 +8,8 @@ const app = express()
 app.use(express.json())
 
 app.post('/webhook', async (req, res) => {
-  console.log('[server] Webhook received', JSON.stringify(req.body, null, 2))
   try {
     await handleMessage(req.body)
-    console.log('[server] Message handled successfully')
     res.sendStatus(200)
   } catch (error) {
     console.error('[server] Error handling webhook', { error: error instanceof Error ? error.message : String(error) })
