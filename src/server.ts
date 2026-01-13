@@ -8,7 +8,7 @@ const app = express()
 app.use(express.json())
 
 app.post('/webhook', async (req, res) => {
-  console.log('[server] Webhook received', { body: req.body })
+  console.log('[server] Webhook received', JSON.stringify(req.body, null, 2))
   try {
     await handleMessage(req.body)
     console.log('[server] Message handled successfully')

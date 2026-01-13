@@ -1,7 +1,7 @@
 import { sendMessage } from './whatsappClient'
 
 export async function handleMessage(payload: any) {
-  console.log('[bot] handleMessage called', { payloadKeys: Object.keys(payload) })
+  console.log('[bot] handleMessage called', JSON.stringify(payload, null, 2))
   
   const message = payload?.messages?.[0]
   if (!message) {
@@ -12,7 +12,7 @@ export async function handleMessage(payload: any) {
   const text = message.text?.body?.toLowerCase() || ''
   const to = message.from
 
-  console.log('[bot] Extracted message', { from: to, text, originalBody: message.text?.body })
+  console.log('[bot] Extracted message', JSON.stringify({ from: to, text, originalBody: message.text?.body }, null, 2))
 
   let reply = "Sorry, I didn't understand that. Type 'help'."
 
@@ -29,6 +29,6 @@ export async function handleMessage(payload: any) {
     console.log('[bot] Matched pricing command')
   }
 
-  console.log('[bot] Sending reply', { to, reply })
+  console.log('[bot] Sending reply', JSON.stringify({ to, reply }, null, 2))
   await sendMessage(to, reply)
 }
