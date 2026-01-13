@@ -98,3 +98,6 @@ Errors are logged with details for debugging. The webhook returns appropriate HT
 - `200` - Message processed successfully
 - `500` - Error during message processing
 
+## Test Screenshot
+<img width="536" height="933" alt="image" src="https://github.com/user-attachments/assets/7eba49de-4245-4cc6-967b-ff62ba61df0d" />
+
