@@ -7,6 +7,7 @@ export async function sendMessage(to: string, text: string) {
   await axios.post(
     API_URL,
     {
+      messaging_product: 'whatsapp',
       to,
       type: 'text',
       text: { body: text }
